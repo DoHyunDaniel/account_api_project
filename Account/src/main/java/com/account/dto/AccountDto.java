@@ -25,6 +25,7 @@ public class AccountDto {
 
 	public static AccountDto fromEntity(Account account) {
 		return AccountDto.builder().userId(account.getAccountUser().getId()).accountNumber(account.getAccountNumber())
-				.registeredAt(account.getRegisterdAt()).unRegisteredAt(account.getUnRegisteredAt()).build();
+				.balance(account.getBalance()).registeredAt(account.getRegisteredAt())
+				.unRegisteredAt(account.getUnRegisteredAt()).build();
 	}
 }
