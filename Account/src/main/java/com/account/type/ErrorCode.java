@@ -6,6 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum ErrorCode {
+	ACCOUNT_TRANSACTION_LOCK("해당 계좌는 사용중입니다."),
 	INTERNAL_SERVER_ERROR("내부 서버 오류가 발생했습니다."),
 	INVALID_REQUEST("잘못된 요청입니다."), USER_NOT_FOUND("사용자가 없습니다."), ACCOUNT_NOT_FOUND("계좌가 없습니다."),
 	AMOUNT_EXCEED_BALANCE("거래 금액이 계좌 잔액보다 큽니다."), MAX_ACCOUNT_PER_USER_10("사용자 최대 계좌는 10개입니다."),

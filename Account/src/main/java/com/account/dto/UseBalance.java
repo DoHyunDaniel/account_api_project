@@ -2,6 +2,7 @@ package com.account.dto;
 
 import java.time.LocalDateTime;
 
+import com.account.aop.AccountLockIdInterface;
 import com.account.dto.UseBalance.Response;
 import com.account.type.TransactionResultType;
 
@@ -24,7 +25,7 @@ public class UseBalance {
 	@Setter
 	@NoArgsConstructor
 	@AllArgsConstructor
-	public static class Request {
+	public static class Request implements AccountLockIdInterface {
 		@NotNull
 		@Min(1)
 		private Long userId;
