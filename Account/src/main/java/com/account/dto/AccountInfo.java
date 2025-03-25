@@ -8,5 +8,5 @@ import lombok.*;
 @Builder
 public class AccountInfo {
 	private String accountNumber;
-	private long balance;
+	private Long balance;
 }

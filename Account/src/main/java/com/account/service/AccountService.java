@@ -3,6 +3,7 @@ package com.account.service;
 import static com.account.type.AccountStatus.IN_USE;
 import static com.account.type.AccountStatus.UNREGISTERED;
 import static com.account.type.ErrorCode.ACCOUNT_ALREADY_UNREGISTERED;
+import static com.account.type.ErrorCode.ACCOUNT_NOT_FOUND;
 import static com.account.type.ErrorCode.BALANCE_NOT_EMPTY;
 import static com.account.type.ErrorCode.MAX_ACCOUNT_PER_USER_10;
 import static com.account.type.ErrorCode.USER_ACCOUNT_UNMATCHED;
@@ -22,7 +23,6 @@ import com.account.dto.AccountDto;
 import com.account.exception.AccountException;
 import com.account.repository.AccountRepository;
 import com.account.repository.AccountUserRepository;
-import com.account.type.ErrorCode;
 
 import lombok.RequiredArgsConstructor;
 
@@ -66,12 +66,12 @@ public class AccountService {
 	}
 
 	@Transactional
-	public AccountDto deleteAccount(long userId, String accountNumber) {
+	public AccountDto deleteAccount(Long userId, String accountNumber) {
 		AccountUser accountUser = accountUserRepository.findById(userId)
 				.orElseThrow(() -> new AccountException(USER_NOT_FOUND));
 
 		Account account = accountRepository.findByAccountNumber(accountNumber)
-				.orElseThrow(() -> new AccountException(ErrorCode.ACCOUNT_NOT_FOUND));
+				.orElseThrow(() -> new AccountException(ACCOUNT_NOT_FOUND));
 
 		validateDeleteAccount(accountUser, account);
 
@@ -96,7 +96,7 @@ public class AccountService {
 
 	}
 
-	public List<AccountDto> getAccountByUserId(long userId) {
+	public List<AccountDto> getAccountByUserId(Long userId) {
 		// TODO Auto-generated method stub
 		AccountUser accountUser = accountUserRepository.findById(userId)
 				.orElseThrow(() -> new AccountException(USER_NOT_FOUND));

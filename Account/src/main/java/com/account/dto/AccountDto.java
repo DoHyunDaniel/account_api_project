@@ -16,9 +16,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder
 public class AccountDto {
-	private long userId;
+	private Long userId;
 	private String accountNumber;
-	private long balance;
+	private Long balance;
 
 	private LocalDateTime registeredAt;
 	private LocalDateTime unRegisteredAt;

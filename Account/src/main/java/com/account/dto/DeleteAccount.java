@@ -20,7 +20,7 @@ public class DeleteAccount {
 	public static class Request {
 		@NotNull
 		@Min(1)
-		private long userId;
+		private Long userId;
 
 		@NotBlank
 		@Size(min = 10, max = 10)
@@ -33,7 +33,7 @@ public class DeleteAccount {
 	@AllArgsConstructor
 	@Builder
 	public static class Response {
-		private long userId;
+		private Long userId;
 		private String accountNumber;
 		private LocalDateTime unRegisteredAt;
 

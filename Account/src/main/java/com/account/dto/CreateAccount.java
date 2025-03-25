@@ -18,11 +18,11 @@ public class CreateAccount {
 	public static class Request {
 		@NotNull
 		@Min(1)
-		private long userId;
+		private Long userId;
 
 		@NotNull
 		@Min(0)
-		private long initialBalance;
+		private Long initialBalance;
 	}
 
 	@Getter
@@ -31,7 +31,7 @@ public class CreateAccount {
 	@AllArgsConstructor
 	@Builder
 	public static class Response {
-		private long userId;
+		private Long userId;
 		private String accountNumber;
 		private LocalDateTime registeredAt;
 
